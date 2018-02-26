@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
-const LeftArrow = styled.div`
+const LeftArrow = styled.button`
   color: #000;
   position: absolute;
-  top: 50%;
   margin-left: 3px;
-  margin-top: 10px;
+  margin-top: 11px;
   width: 16px;
-  height: 1px;
+  height: 2px;
   background-color: #000;
   left: 0px;
-  top: calc(50% - 15px);
+  top: calc(50% - 5px);
+  border: 0;
+  cursor: pointer;
+  outline: none;
   ::before {
     content: '';
     position: absolute;
@@ -18,8 +20,8 @@ const LeftArrow = styled.div`
     top: -5px;
     width: 10px;
     height: 10px;
-    border-top: solid 1px currentColor;
-    border-right: solid 1px currentColor;
+    border-top: solid 2px currentColor;
+    border-right: solid 2px currentColor;
     transform: rotate(-135deg);
   }
   ::after {

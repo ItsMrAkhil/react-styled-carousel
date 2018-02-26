@@ -9,6 +9,7 @@ const ExampleCard = styled.h1`
   margin: 10px;
   padding: 2%;
   position: relative;
+  box-shadow: 0 1px 2px 0 #00111B;
 `;
 
 export default ExampleCard;
