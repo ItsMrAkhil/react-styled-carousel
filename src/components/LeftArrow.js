@@ -9,8 +9,8 @@ const LeftArrow = styled.div`
   width: 16px;
   height: 1px;
   background-color: #000;
-  left: -20px;
-  top: calc(50% - 5px);
+  left: 0px;
+  top: calc(50% - 15px);
   ::before {
     content: '';
     position: absolute;

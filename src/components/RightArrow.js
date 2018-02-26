@@ -8,8 +8,8 @@ const RightArrow = styled.div`
   width: 16px;
   height: 1px;
   background-color: currentColor;
-  right: -20px;
-  top: calc(50% - 5px);
+  right: 0px;
+  top: calc(50% - 15px);
   ::before {
     content: '';
     position: absolute;

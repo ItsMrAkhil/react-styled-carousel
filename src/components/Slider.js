@@ -1,9 +1,11 @@
 import React from 'react';
-import SliderWrapper from './SliderWrapper';
+import SliderTrack from './SliderTrack';
 import CardWrapper from './CardWrapper';
 import RightArrow from './RightArrow';
 import LeftArrow from './LeftArrow';
 import Container from './Container';
+import SliderWrapper from './SliderWrapper';
+import SliderList from './SliderList';
 
 class Slider extends React.Component {
 
@@ -13,12 +15,21 @@ class Slider extends React.Component {
     this.handleLeftArrowClick = this.handleLeftArrowClick.bind(this);
     this.handleRightArrowClick = this.handleRightArrowClick.bind(this);
     this.changeInitialCard = this.changeInitialCard.bind(this);
-    this.state = { initialCard: 0 };
+    this.state = { initialCard: 0, translateX: 0, childWidth: 0 };
   }
 
-  changeInitialCard(cardIndex) {
+  componentDidMount() {
+    let childrenCount = this.props.cardsToShow || (children ? children.length || 1 : 1);
+    const childWidth = 100 / childrenCount;
     this.setState({
-      initialCard: cardIndex,
+      childWidth,
+    });
+  }
+
+  changeInitialCard(initialCard, translateX) {
+    this.setState({
+      initialCard,
+      translateX,
     });
   }
 
@@ -45,28 +56,31 @@ class Slider extends React.Component {
   }
 
   renderChildren(children, cardsToShow) {
-    let childrenCount = cardsToShow || (children ? children.length || 1 : 1);
-    const childWidth = `${100 / childrenCount}%`;
-    const { initialCard } = this.state;
+    const { initialCard, childWidth } = this.state;
     const displayCards = [];
     React.Children.forEach(children, (child, index) => {
-      if (initialCard + cardsToShow >= index + 1 && initialCard <= index) {
-        displayCards.push((
-          <CardWrapper key={index} width={childWidth}>
-            {child}
-          </CardWrapper>
-        ));
-      }
+      // if (initialCard + cardsToShow >= index + 1 && initialCard <= index) {
+      displayCards.push((
+        <CardWrapper key={index} width={childWidth}>
+          {child}
+        </CardWrapper>
+      ));
+      // }
     });
     return displayCards;
   }
 
   render() {
     const { children, cardsToShow, ...otherProps } = this.props;
+    const { initialCard, childWidth } = this.state;
     return (
-      <SliderWrapper {...otherProps}>
+      <SliderWrapper>
         <LeftArrow onClick={this.handleLeftArrowClick} />
-        {this.renderChildren(children, cardsToShow || children.length)}
+        <SliderTrack {...otherProps}>
+          <SliderList translateX={initialCard * childWidth}>
+            {this.renderChildren(children, cardsToShow || children.length)}
+          </SliderList>
+        </SliderTrack>
         <RightArrow onClick={this.handleRightArrowClick} />
       </SliderWrapper>
     );
