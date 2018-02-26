@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const Dot = styled.li.attrs({
   children: ({ onClick }) => <button onClick={onClick}>•</button>, // eslint-disable-line react/prop-types
@@ -24,9 +23,5 @@ const Dot = styled.li.attrs({
     }
   }
 `;
-
-Dot.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
 
 export default Dot;
