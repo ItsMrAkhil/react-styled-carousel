@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 
 import SliderTrack from './SliderTrack';
 import CardWrapper from './CardWrapper';
-import RightArrow from './RightArrow';
-import LeftArrow from './LeftArrow';
-import Container from './Container';
+import DefaultRightArrow from './RightArrow';
+import DefaultLeftArrow from './LeftArrow';
 import SliderWrapper from './SliderWrapper';
 import SliderList from './SliderList';
 import Dots from './Dots';
 import Dot from './Dot';
 
 class Slider extends React.Component {
-
   constructor(props) {
     super(props);
     this.renderChildren = this.renderChildren.bind(this);
@@ -26,11 +24,10 @@ class Slider extends React.Component {
   }
 
   componentDidMount() {
-    const { children } = this.props;
-    const { cardsToShow } = this.props;
-    let childrenCount = cardsToShow || (children ? children.length || 1 : 1);
+    const { children, cardsToShow } = this.props;
+    const childrenCount = cardsToShow || (children ? children.length || 1 : 1);
     const childWidth = 100 / childrenCount;
-    this.setState({
+    this.setState({ // eslint-disable-line react/no-did-mount-set-state
       childWidth,
       cardsToShow: childrenCount,
     });
@@ -54,9 +51,9 @@ class Slider extends React.Component {
     const { children } = this.props;
     const { cardsToShow } = this.state;
     const childrenCount = children ? children.length : 0;
-    if (evt && evt.preventDefault) { evt.preventDefault() }
+    if (evt && evt.preventDefault) { evt.preventDefault(); }
     let nextInitialCard = this.state.initialCard - 1;
-    if (0 > nextInitialCard) {
+    if (nextInitialCard < 0) {
       nextInitialCard = childrenCount - cardsToShow;
     }
     this.changeInitialCard(nextInitialCard);
@@ -66,7 +63,7 @@ class Slider extends React.Component {
     const { children } = this.props;
     const { cardsToShow } = this.state;
     const childrenCount = children ? children.length : 0;
-    if (evt && evt.preventDefault) { evt.preventDefault() }
+    if (evt && evt.preventDefault) { evt.preventDefault(); }
     let nextInitialCard = this.state.initialCard + 1;
     if (childrenCount - cardsToShow < nextInitialCard) {
       nextInitialCard = 0;
@@ -75,7 +72,7 @@ class Slider extends React.Component {
   }
 
   renderChildren(children) {
-    const { initialCard, childWidth } = this.state;
+    const { childWidth } = this.state;
     const displayCards = [];
     React.Children.forEach(children, (child, index) => {
       displayCards.push((
@@ -94,39 +91,35 @@ class Slider extends React.Component {
     let i;
     for (i = 0; i <= numberOfChildren - this.state.cardsToShow; i += 1) {
       const index = i;
-      dots.push(
-        <Dot
-          active={index === this.state.initialCard}
-          key={i}
-          onClick={() => this.changeInitialCard(index)}
-        />
-      );
+      dots.push(<Dot
+        active={index === this.state.initialCard}
+        key={i}
+        onClick={() => this.changeInitialCard(index)}
+      />);
     }
     return dots;
   }
 
   renderLeftArrow() {
-    const { LeftArrow: PropLeftArrow } = this.props;
-    if (PropLeftArrow) {
-      return React.cloneElement(PropLeftArrow, {
-        onClick: this.handleLeftArrowClick,
-      });
-    }
-    return <LeftArrow onClick={this.handleLeftArrowClick}/>
+    const { LeftArrow } = this.props;
+    return React.cloneElement(LeftArrow, {
+      onClick: this.handleLeftArrowClick,
+    });
   }
 
   renderRightArrow() {
-    const { RightArrow: PropRightArrow } = this.props;
-    if (PropRightArrow) {
-      return React.cloneElement(PropRightArrow, {
-        onClick: this.handleRightArrowClick,
-      });
-    }
-    return <RightArrow onClick={this.handleRightArrowClick}/>
+    const { RightArrow } = this.props;
+    return React.cloneElement(RightArrow, {
+      onClick: this.handleRightArrowClick,
+    });
   }
 
   render() {
-    const { children, cardsToShow, showDots, showArrows, ...otherProps } = this.props;
+    const {
+      children, cardsToShow,
+      showDots, showArrows,
+      ...otherProps
+    } = this.props;
     const { initialCard, childWidth } = this.state;
     return (
       <React.Fragment>
@@ -150,10 +143,22 @@ class Slider extends React.Component {
 Slider.defaultProps = {
   showDots: true,
   showArrows: true,
-}
+  LeftArrow: <DefaultLeftArrow />,
+  RightArrow: <DefaultRightArrow />,
+  cardsToShow: null,
+  afterSlide: null,
+  beforeSlide: null,
+};
 
 Slider.propTypes = {
   LeftArrow: PropTypes.node,
-}
+  RightArrow: PropTypes.node,
+  showArrows: PropTypes.bool,
+  showDots: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  cardsToShow: PropTypes.number,
+  afterSlide: PropTypes.func,
+  beforeSlide: PropTypes.func,
+};
 
 export default Slider;
