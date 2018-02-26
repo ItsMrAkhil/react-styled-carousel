@@ -22,7 +22,7 @@ class Slider extends React.Component {
     this.renderDots = this.renderDots.bind(this);
     this.renderLeftArrow = this.renderLeftArrow.bind(this);
     this.renderRightArrow = this.renderRightArrow.bind(this);
-    this.state = { initialCard: 0, translateX: 0, childWidth: 0, cardsToShow: 0 };
+    this.state = { initialCard: 0, childWidth: 0, cardsToShow: 0 };
   }
 
   componentDidMount() {
@@ -36,10 +36,17 @@ class Slider extends React.Component {
     });
   }
 
-  changeInitialCard(initialCard, translateX) {
+  changeInitialCard(initialCard) {
+    const { afterSlide, beforeSlide } = this.props;
+    if (beforeSlide) {
+      beforeSlide();
+    }
     this.setState({
       initialCard,
-      translateX,
+    }, () => {
+      if (afterSlide) {
+        afterSlide();
+      }
     });
   }
 
@@ -91,7 +98,7 @@ class Slider extends React.Component {
         <Dot
           active={index === this.state.initialCard}
           key={i}
-          onClick={() => this.setState({ initialCard: index })}
+          onClick={() => this.changeInitialCard(index)}
         />
       );
     }
@@ -119,18 +126,18 @@ class Slider extends React.Component {
   }
 
   render() {
-    const { children, cardsToShow, showDots, ...otherProps } = this.props;
+    const { children, cardsToShow, showDots, showArrows, ...otherProps } = this.props;
     const { initialCard, childWidth } = this.state;
     return (
       <React.Fragment>
-        <SliderWrapper>
-          {this.renderLeftArrow()}
-          <SliderTrack {...otherProps}>
+        <SliderWrapper {...otherProps}>
+          {showArrows && this.renderLeftArrow()}
+          <SliderTrack>
             <SliderList translateX={initialCard * childWidth}>
               {this.renderChildren(children, cardsToShow || children.length)}
             </SliderList>
           </SliderTrack>
-          {this.renderRightArrow()}
+          {showArrows && this.renderRightArrow()}
         </SliderWrapper>
         <Dots>
           {showDots && this.renderDots()}
@@ -142,6 +149,7 @@ class Slider extends React.Component {
 
 Slider.defaultProps = {
   showDots: true,
+  showArrows: true,
 }
 
 Slider.propTypes = {
