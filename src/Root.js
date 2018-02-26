@@ -10,7 +10,9 @@ const Root = () => {
   return (
     <Container>
       <h1>Styled Carousel Example</h1>
-      <Slider cardsToShow={4}>
+      <Slider
+        cardsToShow={4}
+      >
         <ExampleCard>1</ExampleCard>
         <ExampleCard>2</ExampleCard>
         <ExampleCard>3</ExampleCard>

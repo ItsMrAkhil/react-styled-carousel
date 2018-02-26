@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import SliderTrack from './SliderTrack';
 import CardWrapper from './CardWrapper';
 import RightArrow from './RightArrow';
@@ -18,6 +20,8 @@ class Slider extends React.Component {
     this.handleRightArrowClick = this.handleRightArrowClick.bind(this);
     this.changeInitialCard = this.changeInitialCard.bind(this);
     this.renderDots = this.renderDots.bind(this);
+    this.renderLeftArrow = this.renderLeftArrow.bind(this);
+    this.renderRightArrow = this.renderRightArrow.bind(this);
     this.state = { initialCard: 0, translateX: 0, childWidth: 0, cardsToShow: 0 };
   }
 
@@ -94,19 +98,39 @@ class Slider extends React.Component {
     return dots;
   }
 
+  renderLeftArrow() {
+    const { LeftArrow: PropLeftArrow } = this.props;
+    if (PropLeftArrow) {
+      return React.cloneElement(PropLeftArrow, {
+        onClick: this.handleLeftArrowClick,
+      });
+    }
+    return <LeftArrow onClick={this.handleLeftArrowClick}/>
+  }
+
+  renderRightArrow() {
+    const { RightArrow: PropRightArrow } = this.props;
+    if (PropRightArrow) {
+      return React.cloneElement(PropRightArrow, {
+        onClick: this.handleRightArrowClick,
+      });
+    }
+    return <RightArrow onClick={this.handleRightArrowClick}/>
+  }
+
   render() {
     const { children, cardsToShow, showDots, ...otherProps } = this.props;
     const { initialCard, childWidth } = this.state;
     return (
       <React.Fragment>
         <SliderWrapper>
-          <LeftArrow onClick={this.handleLeftArrowClick} />
+          {this.renderLeftArrow()}
           <SliderTrack {...otherProps}>
             <SliderList translateX={initialCard * childWidth}>
               {this.renderChildren(children, cardsToShow || children.length)}
             </SliderList>
           </SliderTrack>
-          <RightArrow onClick={this.handleRightArrowClick} />
+          {this.renderRightArrow()}
         </SliderWrapper>
         <Dots>
           {showDots && this.renderDots()}
@@ -118,6 +142,10 @@ class Slider extends React.Component {
 
 Slider.defaultProps = {
   showDots: true,
+}
+
+Slider.propTypes = {
+  LeftArrow: PropTypes.node,
 }
 
 export default Slider;
