@@ -1,5 +1,5 @@
 src
 .gitattributes
 .gitignore
-webpack.confi.dev.js
+webpack.config.dev.js
 .babelrc
