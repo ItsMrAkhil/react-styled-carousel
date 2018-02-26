@@ -2,7 +2,8 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import 'normalize.css';
 
-import Slider from './components/Slider';
+// import Slider from './components/Slider';
+import Slider from '../build/Slider';
 import ExampleCard from './components/ExampleCard';
 import Container from './components/Container';
 
