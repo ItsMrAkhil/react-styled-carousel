@@ -7,11 +7,11 @@ const RightArrow = styled.button`
   margin-top: 11px;
   width: 16px;
   height: 1px;
-  background-color: currentColor;
+  background-color: ${({ disabled }) => disabled ? '#B2B2B2' : '#000000'};
   right: 0px;
   top: calc(50% - 5px);
   border: 0;
-  cursor: pointer;
+  cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
   outline: none;
   ::before {
     content: '';
@@ -20,8 +20,8 @@ const RightArrow = styled.button`
     top: -5px;
     width: 10px;
     height: 10px;
-    border-top: solid 2px currentColor;
-    border-right: solid 2px currentColor;
+    border-top: solid 2px ${({ disabled }) => disabled ? '#B2B2B2' : '#000000'};
+    border-right: solid 2px ${({ disabled }) => disabled ? '#B2B2B2' : '#000000'};
     transform: rotate(45deg);
   }
   ::after {

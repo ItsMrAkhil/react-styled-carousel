@@ -154,7 +154,7 @@ Slider.defaultProps = {
   cardsToShow: null,
   afterSlide: null,
   beforeSlide: null,
-  infinite: false,
+  infinite: true,
 };
 
 Slider.propTypes = {
