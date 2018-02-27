@@ -101,16 +101,21 @@ class Slider extends React.Component {
   }
 
   renderLeftArrow() {
-    const { LeftArrow } = this.props;
+    const { LeftArrow, infinite } = this.props;
+    const { initialCard } = this.state;
     return React.cloneElement(LeftArrow, {
       onClick: this.handleLeftArrowClick,
+      disabled: !infinite && !initialCard,
     });
   }
 
   renderRightArrow() {
-    const { RightArrow } = this.props;
+    const { RightArrow, children, infinite } = this.props;
+    const numberOfChildren = children ? children.length || 1 : 0;
+    const { initialCard, cardsToShow } = this.state;
     return React.cloneElement(RightArrow, {
       onClick: this.handleRightArrowClick,
+      disabled: !infinite && (initialCard + cardsToShow === numberOfChildren),
     });
   }
 
@@ -149,6 +154,7 @@ Slider.defaultProps = {
   cardsToShow: null,
   afterSlide: null,
   beforeSlide: null,
+  infinite: false,
 };
 
 Slider.propTypes = {
@@ -161,6 +167,7 @@ Slider.propTypes = {
   cardsToShow: PropTypes.number,
   afterSlide: PropTypes.func,
   beforeSlide: PropTypes.func,
+  infinite: PropTypes.bool,
 };
 
 export default Slider;

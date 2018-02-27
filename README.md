@@ -47,10 +47,11 @@ ReactDOM.render(<ExampleSlider />, document.getElementById('root'));
 Props | Type | Default Value | Description
 ----- | ---- | ------------- | -----------
 `showArrows` | `Boolean` | `true` | If `true` then only Arrows of navigation will be shown
-`LeftArrow` | `React Node` | Default | Customized left arrow button
-`RightArrow` | `React Node` | Default | Customized right arrow button
 `showDots` | `Boolean` | `true` | Show navigation or pagination dots below the slider
+`infinite` | `Boolean` | `true` | Infinitely slide cards.
 `Dot` | `React Node` | Default | Customized pagination button (`Active slide Dot` will get `active` as `Boolean` prop.)
+`LeftArrow` | `React Node` | Default | Customized left arrow button. It'll get disable `Boolean` prop if last Dot is active and infinite is false.
+`RightArrow` | `React Node` | Default | Customized right arrow button. It'll get disabled `Boolean` prop if first Dot is active and infinite is false.
 `children` | `React Node` | null | Cards are components which you want to show in the carousel
 `cardsToShow` | `Number` | Children length | How many cards to be shown for a single slide.
 `afterSlide` | `Function` | null | This function will be executed after every sliding is completed
