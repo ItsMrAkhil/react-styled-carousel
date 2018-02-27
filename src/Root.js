@@ -10,7 +10,7 @@ const Root = () => (
   <Container>
     <h1>Styled Carousel Example</h1>
     <Slider
-      cardsToShow={2}
+      cardsToShow={4}
     >
       <ExampleCard>1</ExampleCard>
       <ExampleCard>2</ExampleCard>

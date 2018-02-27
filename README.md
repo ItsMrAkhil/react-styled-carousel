@@ -43,6 +43,33 @@ const ExampleSlider = () => (
 ReactDOM.render(<ExampleSlider />, document.getElementById('root'));
 ```
 
+#### Responsive
+`react-styled-carousel` is responsive. Below is the example configuration of responsiveness.
+
+> **Note:** If `responsive` prop is provided then, it'll override the cardsToShow prop. In other words cardsToShow will not work.
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom'
+import Slider from 'react-styled-carousel';
+
+const responsive = [
+  { breakPoint: 1280, cardsToShow: 4 }, // this will be applied if screen size is greater than 1280px. cardsToShow will become 4.
+  { breakPoint: 760, cardsToShow: 2 },
+];
+
+const ExampleSlider = () => (
+  <Slider>
+    <h1>1</h1>
+    <h1>2</h1>
+    <h1>3</h1>
+    <h1>4</h1>
+  </Slider>
+);
+
+ReactDOM.render(<ExampleSlider />, document.getElementById('root'));
+```
+
 #### Configurable Props
 Props | Type | Default Value | Description
 ----- | ---- | ------------- | -----------
@@ -56,6 +83,7 @@ Props | Type | Default Value | Description
 `cardsToShow` | `Number` | Children length | How many cards to be shown for a single slide.
 `afterSlide` | `Function` | null | This function will be executed after every sliding is completed
 `beforeSlide` | `Function` | null | This function will be executed before starting every sliding
+`responsive` | `Array` | null | Use this for responsiveness [Documentation](#responsive)
 
 License
 ----
