@@ -1,5 +1,7 @@
+/* global window */
 import React from 'react';
 import PropTypes from 'prop-types';
+import sortBy from 'lodash.sortby';
 
 import SliderTrack from './SliderTrack';
 import CardWrapper from './CardWrapper';
@@ -9,6 +11,14 @@ import SliderWrapper from './SliderWrapper';
 import SliderList from './SliderList';
 import Dots from './Dots';
 import DefaultDot from './Dot';
+
+if (typeof window === 'undefined') {
+  global.window = {
+    addEventListener: () => null,
+    removeEventListener: () => null,
+    innerWidth: 1280,
+  };
+}
 
 class Slider extends React.Component {
   constructor(props) {
@@ -20,7 +30,12 @@ class Slider extends React.Component {
     this.renderDots = this.renderDots.bind(this);
     this.renderLeftArrow = this.renderLeftArrow.bind(this);
     this.renderRightArrow = this.renderRightArrow.bind(this);
-    this.state = { initialCard: 0, childWidth: 0, cardsToShow: 0 };
+    this.updateResponsiveView = this.updateResponsiveView.bind(this);
+    this.state = {
+      initialCard: 0,
+      childWidth: 0,
+      cardsToShow: 0,
+    };
   }
 
   componentDidMount() {
@@ -30,7 +45,33 @@ class Slider extends React.Component {
     this.setState({ // eslint-disable-line react/no-did-mount-set-state
       childWidth,
       cardsToShow: childrenCount,
-    });
+    }, () => this.updateResponsiveView());
+    window.addEventListener('resize', this.updateResponsiveView);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateResponsiveView);
+  }
+
+  updateResponsiveView() {
+    const { children } = this.props;
+    let { responsive } = this.props;
+    const numberOfChildren = children ? children.length || 1 : 0;
+    if (responsive) {
+      responsive = sortBy(responsive, 'breakPoint');
+      let updatedCardsToShow = this.state.cardsToShow;
+      responsive.forEach(({ breakPoint, cardsToShow }) => {
+        if (breakPoint <= window.innerWidth) {
+          updatedCardsToShow = cardsToShow;
+        }
+      });
+      const updatedInitialCard = (numberOfChildren - updatedCardsToShow) < this.state.initialCard ? (numberOfChildren - updatedCardsToShow) : this.state.initialCard;
+      this.setState({
+        cardsToShow: updatedCardsToShow,
+        childWidth: 100 / updatedCardsToShow,
+        initialCard: updatedInitialCard,
+      });
+    }
   }
 
   changeInitialCard(initialCard) {
@@ -155,6 +196,7 @@ Slider.defaultProps = {
   afterSlide: null,
   beforeSlide: null,
   infinite: true,
+  responsive: null,
 };
 
 Slider.propTypes = {
@@ -168,6 +210,10 @@ Slider.propTypes = {
   afterSlide: PropTypes.func,
   beforeSlide: PropTypes.func,
   infinite: PropTypes.bool,
+  responsive: PropTypes.arrayOf(PropTypes.shape({
+    breakPoint: PropTypes.number.isRequired,
+    cardsToShow: PropTypes.number.isRequired,
+  })),
 };
 
 export default Slider;
