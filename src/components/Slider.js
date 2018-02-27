@@ -8,7 +8,7 @@ import DefaultLeftArrow from './LeftArrow';
 import SliderWrapper from './SliderWrapper';
 import SliderList from './SliderList';
 import Dots from './Dots';
-import Dot from './Dot';
+import DefaultDot from './Dot';
 
 class Slider extends React.Component {
   constructor(props) {
@@ -86,16 +86,16 @@ class Slider extends React.Component {
 
   renderDots() {
     const dots = [];
-    const { children } = this.props;
+    const { children, Dot } = this.props;
     const numberOfChildren = children ? children.length || 1 : 0;
     let i;
     for (i = 0; i <= numberOfChildren - this.state.cardsToShow; i += 1) {
       const index = i;
-      dots.push(<Dot
-        active={index === this.state.initialCard}
-        key={i}
-        onClick={() => this.changeInitialCard(index)}
-      />);
+      dots.push(React.cloneElement(Dot, {
+        active: index === this.state.initialCard,
+        key: index,
+        onClick: () => this.changeInitialCard(index),
+      }));
     }
     return dots;
   }
@@ -145,6 +145,7 @@ Slider.defaultProps = {
   showArrows: true,
   LeftArrow: <DefaultLeftArrow />,
   RightArrow: <DefaultRightArrow />,
+  Dot: <DefaultDot />,
   cardsToShow: null,
   afterSlide: null,
   beforeSlide: null,
@@ -153,6 +154,7 @@ Slider.defaultProps = {
 Slider.propTypes = {
   LeftArrow: PropTypes.node,
   RightArrow: PropTypes.node,
+  Dot: PropTypes.node,
   showArrows: PropTypes.bool,
   showDots: PropTypes.bool,
   children: PropTypes.node.isRequired,
