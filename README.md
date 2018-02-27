@@ -32,12 +32,12 @@ import ReactDOM from 'react-dom'
 import Slider from 'react-styled-carousel';
 
 const ExampleSlider = () => (
-    <Slider>
-        <h1>1</h1>
-        <h1>2</h1>
-        <h1>3</h1>
-        <h1>4</h1>
-    </Slider>
+  <Slider>
+    <h1>1</h1>
+    <h1>2</h1>
+    <h1>3</h1>
+    <h1>4</h1>
+  </Slider>
 );
 
 ReactDOM.render(<ExampleSlider />, document.getElementById('root'));
@@ -47,14 +47,14 @@ ReactDOM.render(<ExampleSlider />, document.getElementById('root'));
 Props | Type | Default Value | Description
 ----- | ---- | ------------- | -----------
 `showArrows` | `Boolean` | `true` | If `true` then only Arrows of navigation will be shown
-`LeftArrow` | `React Node` | Default | Customised left arrow button
-`RightArrow` | `React Node` | Default | Customised right arrow button
+`LeftArrow` | `React Node` | Default | Customized left arrow button
+`RightArrow` | `React Node` | Default | Customized right arrow button
 `showDots` | `Boolean` | `true` | Show navigation or pagination dots below the slider
 `Dot` | `React Node` | Default | Customized pagination button (`Active slide Dot` will get `active` as `Boolean` prop.)
 `children` | `React Node` | null | Cards are components which you want to show in the carousel
 `cardsToShow` | `Number` | Children length | How many cards to be shown for a single slide.
-`afterSlide` | `Function` | null | This function will be excecuted after every sliding is completed
-`beforeSlide` | `Function` | null | This function will be excecuted before starting every sliding
+`afterSlide` | `Function` | null | This function will be executed after every sliding is completed
+`beforeSlide` | `Function` | null | This function will be executed before starting every sliding
 
 License
 ----
