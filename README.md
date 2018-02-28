@@ -84,6 +84,8 @@ Props | Type | Default Value | Description
 `afterSlide` | `Function` | null | This function will be executed after every sliding is completed
 `beforeSlide` | `Function` | null | This function will be executed before starting every sliding
 `responsive` | `Array` | null | Use this for responsiveness [Documentation](#responsive)
+`autoSlide` | `Number` or `Boolean` | `2000` | Used to make carousel auto slide for every given time interval. Or for 2000ms if the prop value is true.
+`pauseOnMouseOver`| `Boolean` | `true` | Pause auto sliding on mouse over the carousel.
 
 License
 ----
