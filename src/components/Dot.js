@@ -6,7 +6,7 @@ const Dot = styled.li.attrs({
 })`
   display: inline-block;
   pointer-events: none;
-  > button {
+  button {
     pointer-events: all;
     border: 0;
     background: 0 0;
