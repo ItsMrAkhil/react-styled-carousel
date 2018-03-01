@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --color --config webpack.config.dev.js",
     "build": "rimraf build && babel src/components -d build",
-    "test": "jest"
+    "test": "cross-env NODE_ENV=test jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -69,7 +69,13 @@
   "jest": {
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
-      "!**/node_modules/**"
+      "!**/node_modules/**",
+      "!**/build/**",
+      "!webpack.config.dev.js",
+      "!**/coverage/**",
+      "!setupJest.js",
+      "!**/Root.js",
+      "!**/example.js"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js"
   },
