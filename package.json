@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --color --config webpack.config.dev.js",
     "build": "rimraf build && babel src/components -d build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,8 @@
     "babel-register": "^6.26.0",
     "cross-env": "^5.1.3",
     "css-loader": "^0.28.9",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -43,6 +45,9 @@
     "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
+    "jest": "^22.4.2",
+    "jest-enzyme": "^4.2.0",
+    "jest-styled-components": "^5.0.0",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.0",
     "react-dom": "^16.2.0",
@@ -60,6 +65,19 @@
   "peerDependencies": {
     "react": "^16.2.0",
     "styled-components": "^3.1.6"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/build/**",
+      "!webpack.config.dev.js",
+      "!**/coverage/**",
+      "!setupJest.js",
+      "!**/Root.js",
+      "!**/example.js"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
@@ -80,6 +98,14 @@
       "import/no-extraneous-dependencies": 0,
       "no-confusing-arrow": 0,
       "max-len": 0
+    },
+    "globals": {
+      "it": true,
+      "describe": true,
+      "shallow": true,
+      "expect": true,
+      "mount": true,
+      "window": true
     }
   }
 }

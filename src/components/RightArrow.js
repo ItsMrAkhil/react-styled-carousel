@@ -13,7 +13,7 @@ const RightArrow = styled.button`
   border: 0;
   cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
   outline: none;
-  ::before {
+  :before {
     content: '';
     position: absolute;
     right: 1px;
@@ -24,7 +24,7 @@ const RightArrow = styled.button`
     border-right: solid 2px ${({ disabled }) => disabled ? '#B2B2B2' : '#000000'};
     transform: rotate(45deg);
   }
-  ::after {
+  :after {
     content: '';
     position: absolute;
   }
