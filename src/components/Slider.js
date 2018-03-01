@@ -183,12 +183,12 @@ class Slider extends React.Component {
     } = this.props;
     const { initialCard, childWidth } = this.state;
     return (
-      <React.Fragment>
-        <SliderWrapper
-          onMouseLeave={() => pauseOnMouseOver && this.autoSlider && this.autoSlider.resume()}
-          onMouseEnter={() => pauseOnMouseOver && this.autoSlider && this.autoSlider.pause()}
-          {...otherProps}
-        >
+      <div
+        onMouseLeave={() => pauseOnMouseOver && this.autoSlider && this.autoSlider.resume()}
+        onMouseEnter={() => pauseOnMouseOver && this.autoSlider && this.autoSlider.pause()}
+        {...otherProps}
+      >
+        <SliderWrapper >
           {showArrows && this.renderLeftArrow()}
           <SliderTrack>
             <SliderList translateX={initialCard * childWidth}>
@@ -200,7 +200,7 @@ class Slider extends React.Component {
         <Dots>
           {showDots && this.renderDots()}
         </Dots>
-      </React.Fragment>
+      </div>
     );
   }
 }
