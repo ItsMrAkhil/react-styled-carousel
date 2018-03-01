@@ -5,7 +5,7 @@
   "main": "build/Slider.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --color --config webpack.config.dev.js",
-    "build": "rimraf build && babel src/components -d build",
+    "build": "rimraf build && babel src/components --ignore '**/*__tests__*/**' -d build",
     "test": "cross-env NODE_ENV=test jest --coverage"
   },
   "repository": {
