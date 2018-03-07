@@ -13,6 +13,7 @@ const LeftArrow = styled.button`
   border: 0;
   cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
   outline: none;
+  z-index: 1;
   :before {
     content: '';
     position: absolute;

@@ -1,11 +1,11 @@
 {
   "name": "react-styled-carousel",
-  "version": "0.3.2",
+  "version": "0.3.5",
   "description": "React styled-components carousel. No css is needed, fully configurable, SSR supported. Theming supported.",
-  "main": "build/Slider.js",
+  "main": "build/components/Slider.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --color --config webpack.config.dev.js",
-    "build": "rimraf build && babel src/components --ignore '**/*__tests__*/**' -d build",
+    "build": "rimraf build && babel src --ignore '**/*__tests__*/**, **/*Root.js, **/*example.js' -d build",
     "test": "cross-env NODE_ENV=test jest --coverage"
   },
   "repository": {

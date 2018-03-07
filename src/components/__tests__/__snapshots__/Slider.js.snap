@@ -37,16 +37,18 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "Dot": <styled.li />,
-      "LeftArrow": <styled.button />,
-      "RightArrow": <styled.button />,
-      "afterSlide": null,
-      "autoSlide": 2000,
-      "beforeSlide": null,
       "children": Array [
         <styled.div
+          Dot={<styled.li />}
+          LeftArrow={<styled.button />}
+          RightArrow={<styled.button />}
+          afterSlide={null}
+          autoSlide={2000}
+          beforeSlide={null}
+          infinite={true}
           margin="0px"
           padding="0px 20px"
+          responsive={null}
         >
           <styled.button
             disabled={false}
@@ -82,10 +84,8 @@ ShallowWrapper {
           />
         </styled.ul>,
       ],
-      "infinite": true,
       "onMouseEnter": [Function],
       "onMouseLeave": [Function],
-      "responsive": null,
     },
     "ref": null,
     "rendered": Array [
@@ -94,6 +94,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "Dot": <styled.li />,
+          "LeftArrow": <styled.button />,
+          "RightArrow": <styled.button />,
+          "afterSlide": null,
+          "autoSlide": 2000,
+          "beforeSlide": null,
           "children": Array [
             <styled.button
               disabled={false}
@@ -122,8 +128,10 @@ ShallowWrapper {
               onClick={[Function]}
             />,
           ],
+          "infinite": true,
           "margin": "0px",
           "padding": "0px 20px",
+          "responsive": null,
         },
         "ref": null,
         "rendered": Array [
@@ -287,16 +295,18 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "Dot": <styled.li />,
-        "LeftArrow": <styled.button />,
-        "RightArrow": <styled.button />,
-        "afterSlide": null,
-        "autoSlide": 2000,
-        "beforeSlide": null,
         "children": Array [
           <styled.div
+            Dot={<styled.li />}
+            LeftArrow={<styled.button />}
+            RightArrow={<styled.button />}
+            afterSlide={null}
+            autoSlide={2000}
+            beforeSlide={null}
+            infinite={true}
             margin="0px"
             padding="0px 20px"
+            responsive={null}
           >
             <styled.button
               disabled={false}
@@ -332,10 +342,8 @@ ShallowWrapper {
             />
           </styled.ul>,
         ],
-        "infinite": true,
         "onMouseEnter": [Function],
         "onMouseLeave": [Function],
-        "responsive": null,
       },
       "ref": null,
       "rendered": Array [
@@ -344,6 +352,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "Dot": <styled.li />,
+            "LeftArrow": <styled.button />,
+            "RightArrow": <styled.button />,
+            "afterSlide": null,
+            "autoSlide": 2000,
+            "beforeSlide": null,
             "children": Array [
               <styled.button
                 disabled={false}
@@ -372,8 +386,10 @@ ShallowWrapper {
                 onClick={[Function]}
               />,
             ],
+            "infinite": true,
             "margin": "0px",
             "padding": "0px 20px",
+            "responsive": null,
           },
           "ref": null,
           "rendered": Array [
@@ -576,16 +592,18 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "Dot": <styled.li />,
-      "LeftArrow": <styled.button />,
-      "RightArrow": <styled.button />,
-      "afterSlide": null,
-      "autoSlide": 2000,
-      "beforeSlide": null,
       "children": Array [
         <styled.div
+          Dot={<styled.li />}
+          LeftArrow={<styled.button />}
+          RightArrow={<styled.button />}
+          afterSlide={null}
+          autoSlide={2000}
+          beforeSlide={null}
+          infinite={true}
           margin="0px"
           padding="0px 20px"
+          responsive={null}
         >
           <styled.button
             disabled={false}
@@ -614,10 +632,8 @@ ShallowWrapper {
           />
         </styled.ul>,
       ],
-      "infinite": true,
       "onMouseEnter": [Function],
       "onMouseLeave": [Function],
-      "responsive": null,
     },
     "ref": null,
     "rendered": Array [
@@ -626,6 +642,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "Dot": <styled.li />,
+          "LeftArrow": <styled.button />,
+          "RightArrow": <styled.button />,
+          "afterSlide": null,
+          "autoSlide": 2000,
+          "beforeSlide": null,
           "children": Array [
             <styled.button
               disabled={false}
@@ -647,8 +669,10 @@ ShallowWrapper {
               onClick={[Function]}
             />,
           ],
+          "infinite": true,
           "margin": "0px",
           "padding": "0px 20px",
+          "responsive": null,
         },
         "ref": null,
         "rendered": Array [
@@ -774,16 +798,18 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "Dot": <styled.li />,
-        "LeftArrow": <styled.button />,
-        "RightArrow": <styled.button />,
-        "afterSlide": null,
-        "autoSlide": 2000,
-        "beforeSlide": null,
         "children": Array [
           <styled.div
+            Dot={<styled.li />}
+            LeftArrow={<styled.button />}
+            RightArrow={<styled.button />}
+            afterSlide={null}
+            autoSlide={2000}
+            beforeSlide={null}
+            infinite={true}
             margin="0px"
             padding="0px 20px"
+            responsive={null}
           >
             <styled.button
               disabled={false}
@@ -812,10 +838,8 @@ ShallowWrapper {
             />
           </styled.ul>,
         ],
-        "infinite": true,
         "onMouseEnter": [Function],
         "onMouseLeave": [Function],
-        "responsive": null,
       },
       "ref": null,
       "rendered": Array [
@@ -824,6 +848,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "Dot": <styled.li />,
+            "LeftArrow": <styled.button />,
+            "RightArrow": <styled.button />,
+            "afterSlide": null,
+            "autoSlide": 2000,
+            "beforeSlide": null,
             "children": Array [
               <styled.button
                 disabled={false}
@@ -845,8 +875,10 @@ ShallowWrapper {
                 onClick={[Function]}
               />,
             ],
+            "infinite": true,
             "margin": "0px",
             "padding": "0px 20px",
+            "responsive": null,
           },
           "ref": null,
           "rendered": Array [
