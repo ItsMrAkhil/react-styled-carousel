@@ -11,6 +11,8 @@ const Root = () => (
     <h1>Styled Carousel Example</h1>
     <Slider
       cardsToShow={4}
+      padding="0px 25px"
+      margin="3em 0 0 0"
     >
       <ExampleCard>1</ExampleCard>
       <ExampleCard>2</ExampleCard>

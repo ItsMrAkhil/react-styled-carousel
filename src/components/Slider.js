@@ -178,7 +178,8 @@ class Slider extends React.Component {
     const {
       children, cardsToShow,
       showDots, showArrows,
-      pauseOnMouseOver,
+      pauseOnMouseOver, padding,
+      margin,
       ...otherProps
     } = this.props;
     const { initialCard, childWidth } = this.state;
@@ -188,7 +189,7 @@ class Slider extends React.Component {
         onMouseEnter={() => pauseOnMouseOver && this.autoSlider && this.autoSlider.pause()}
         {...otherProps}
       >
-        <SliderWrapper >
+        <SliderWrapper padding={padding} margin={margin}>
           {showArrows && this.renderLeftArrow()}
           <SliderTrack>
             <SliderList translateX={initialCard * childWidth}>
@@ -218,6 +219,8 @@ Slider.defaultProps = {
   responsive: null,
   autoSlide: 2000,
   pauseOnMouseOver: true,
+  padding: '0px 20px',
+  margin: '0px',
 };
 
 Slider.propTypes = {
@@ -240,6 +243,8 @@ Slider.propTypes = {
     PropTypes.bool,
   ]),
   pauseOnMouseOver: PropTypes.bool,
+  padding: PropTypes.string,
+  margin: PropTypes.string,
 };
 
 export default Slider;
