@@ -12,6 +12,7 @@ ShallowWrapper {
     autoSlide={2000}
     beforeSlide={null}
     cardsToShow={null}
+    hideArrowsOnNoSlides={true}
     infinite={true}
     margin="0px"
     padding="0px 20px"
@@ -45,15 +46,12 @@ ShallowWrapper {
           afterSlide={null}
           autoSlide={2000}
           beforeSlide={null}
+          hideArrowsOnNoSlides={true}
           infinite={true}
           margin="0px"
           padding="0px 20px"
           responsive={null}
         >
-          <styled.button
-            disabled={false}
-            onClick={[Function]}
-          />
           <styled.div>
             <styled.div
               translateX={0}
@@ -72,10 +70,6 @@ ShallowWrapper {
               </styled.div>
             </styled.div>
           </styled.div>
-          <styled.button
-            disabled={false}
-            onClick={[Function]}
-          />
         </styled.div>,
         <styled.ul>
           <styled.li
@@ -101,10 +95,7 @@ ShallowWrapper {
           "autoSlide": 2000,
           "beforeSlide": null,
           "children": Array [
-            <styled.button
-              disabled={false}
-              onClick={[Function]}
-            />,
+            false,
             <styled.div>
               <styled.div
                 translateX={0}
@@ -123,11 +114,9 @@ ShallowWrapper {
                 </styled.div>
               </styled.div>
             </styled.div>,
-            <styled.button
-              disabled={false}
-              onClick={[Function]}
-            />,
+            false,
           ],
+          "hideArrowsOnNoSlides": true,
           "infinite": true,
           "margin": "0px",
           "padding": "0px 20px",
@@ -135,18 +124,7 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "disabled": false,
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
+          false,
           Object {
             "instance": null,
             "key": undefined,
@@ -242,18 +220,7 @@ ShallowWrapper {
             },
             "type": [Function],
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "disabled": false,
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
+          false,
         ],
         "type": [Function],
       },
@@ -303,15 +270,12 @@ ShallowWrapper {
             afterSlide={null}
             autoSlide={2000}
             beforeSlide={null}
+            hideArrowsOnNoSlides={true}
             infinite={true}
             margin="0px"
             padding="0px 20px"
             responsive={null}
           >
-            <styled.button
-              disabled={false}
-              onClick={[Function]}
-            />
             <styled.div>
               <styled.div
                 translateX={0}
@@ -330,10 +294,6 @@ ShallowWrapper {
                 </styled.div>
               </styled.div>
             </styled.div>
-            <styled.button
-              disabled={false}
-              onClick={[Function]}
-            />
           </styled.div>,
           <styled.ul>
             <styled.li
@@ -359,10 +319,7 @@ ShallowWrapper {
             "autoSlide": 2000,
             "beforeSlide": null,
             "children": Array [
-              <styled.button
-                disabled={false}
-                onClick={[Function]}
-              />,
+              false,
               <styled.div>
                 <styled.div
                   translateX={0}
@@ -381,11 +338,9 @@ ShallowWrapper {
                   </styled.div>
                 </styled.div>
               </styled.div>,
-              <styled.button
-                disabled={false}
-                onClick={[Function]}
-              />,
+              false,
             ],
+            "hideArrowsOnNoSlides": true,
             "infinite": true,
             "margin": "0px",
             "padding": "0px 20px",
@@ -393,18 +348,7 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "disabled": false,
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
+            false,
             Object {
               "instance": null,
               "key": undefined,
@@ -500,18 +444,7 @@ ShallowWrapper {
               },
               "type": [Function],
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "disabled": false,
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
+            false,
           ],
           "type": [Function],
         },
@@ -570,6 +503,7 @@ ShallowWrapper {
     autoSlide={2000}
     beforeSlide={null}
     cardsToShow={null}
+    hideArrowsOnNoSlides={true}
     infinite={true}
     margin="0px"
     padding="0px 20px"
@@ -600,15 +534,12 @@ ShallowWrapper {
           afterSlide={null}
           autoSlide={2000}
           beforeSlide={null}
+          hideArrowsOnNoSlides={true}
           infinite={true}
           margin="0px"
           padding="0px 20px"
           responsive={null}
         >
-          <styled.button
-            disabled={false}
-            onClick={[Function]}
-          />
           <styled.div>
             <styled.div
               translateX={0}
@@ -620,10 +551,6 @@ ShallowWrapper {
               </styled.div>
             </styled.div>
           </styled.div>
-          <styled.button
-            disabled={false}
-            onClick={[Function]}
-          />
         </styled.div>,
         <styled.ul>
           <styled.li
@@ -649,10 +576,7 @@ ShallowWrapper {
           "autoSlide": 2000,
           "beforeSlide": null,
           "children": Array [
-            <styled.button
-              disabled={false}
-              onClick={[Function]}
-            />,
+            false,
             <styled.div>
               <styled.div
                 translateX={0}
@@ -664,11 +588,9 @@ ShallowWrapper {
                 </styled.div>
               </styled.div>
             </styled.div>,
-            <styled.button
-              disabled={false}
-              onClick={[Function]}
-            />,
+            false,
           ],
+          "hideArrowsOnNoSlides": true,
           "infinite": true,
           "margin": "0px",
           "padding": "0px 20px",
@@ -676,18 +598,7 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "disabled": false,
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
+          false,
           Object {
             "instance": null,
             "key": undefined,
@@ -745,18 +656,7 @@ ShallowWrapper {
             },
             "type": [Function],
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "disabled": false,
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
+          false,
         ],
         "type": [Function],
       },
@@ -806,15 +706,12 @@ ShallowWrapper {
             afterSlide={null}
             autoSlide={2000}
             beforeSlide={null}
+            hideArrowsOnNoSlides={true}
             infinite={true}
             margin="0px"
             padding="0px 20px"
             responsive={null}
           >
-            <styled.button
-              disabled={false}
-              onClick={[Function]}
-            />
             <styled.div>
               <styled.div
                 translateX={0}
@@ -826,10 +723,6 @@ ShallowWrapper {
                 </styled.div>
               </styled.div>
             </styled.div>
-            <styled.button
-              disabled={false}
-              onClick={[Function]}
-            />
           </styled.div>,
           <styled.ul>
             <styled.li
@@ -855,10 +748,7 @@ ShallowWrapper {
             "autoSlide": 2000,
             "beforeSlide": null,
             "children": Array [
-              <styled.button
-                disabled={false}
-                onClick={[Function]}
-              />,
+              false,
               <styled.div>
                 <styled.div
                   translateX={0}
@@ -870,11 +760,9 @@ ShallowWrapper {
                   </styled.div>
                 </styled.div>
               </styled.div>,
-              <styled.button
-                disabled={false}
-                onClick={[Function]}
-              />,
+              false,
             ],
+            "hideArrowsOnNoSlides": true,
             "infinite": true,
             "margin": "0px",
             "padding": "0px 20px",
@@ -882,18 +770,7 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "disabled": false,
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
+            false,
             Object {
               "instance": null,
               "key": undefined,
@@ -951,18 +828,7 @@ ShallowWrapper {
               },
               "type": [Function],
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "disabled": false,
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
+            false,
           ],
           "type": [Function],
         },

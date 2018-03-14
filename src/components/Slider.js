@@ -36,22 +36,27 @@ class Slider extends React.Component {
       initialCard: 0,
       childWidth: 0,
       cardsToShow: 0,
+      hideArrows: false,
     };
   }
 
   componentDidMount() {
-    const { children, cardsToShow, autoSlide } = this.props;
-    const childrenCount = cardsToShow || (children ? children.length || 1 : 1);
-    const childWidth = 100 / childrenCount;
+    const {
+      children, cardsToShow: cardsToShowProp,
+      autoSlide, hideArrowsOnNoSlides,
+    } = this.props;
+    const numberOfChildren = children ? children.length || 1 : 0;
+    const cardsToShow = cardsToShowProp || numberOfChildren;
+    const childWidth = 100 / cardsToShow;
     this.setState({ // eslint-disable-line react/no-did-mount-set-state
       childWidth,
-      cardsToShow: childrenCount,
+      cardsToShow,
+      hideArrows: hideArrowsOnNoSlides && numberOfChildren === cardsToShow,
     }, () => this.updateResponsiveView());
     window.addEventListener('resize', this.updateResponsiveView);
     if (autoSlide) {
       this.autoSlider = new Timer(() => {
         let updatedInitialCard = 0;
-        const numberOfChildren = children ? children.length || 1 : 0;
         if (numberOfChildren - this.state.cardsToShow > this.state.initialCard) {
           updatedInitialCard = this.state.initialCard + 1;
         }
@@ -68,7 +73,7 @@ class Slider extends React.Component {
   }
 
   updateResponsiveView() {
-    const { children } = this.props;
+    const { children, hideArrowsOnNoSlides } = this.props;
     let { responsive } = this.props;
     const numberOfChildren = children ? children.length || 1 : 0;
     if (responsive) {
@@ -84,6 +89,7 @@ class Slider extends React.Component {
         cardsToShow: updatedCardsToShow,
         childWidth: 100 / updatedCardsToShow,
         initialCard: updatedInitialCard,
+        hideArrows: hideArrowsOnNoSlides && numberOfChildren === updatedCardsToShow,
       });
     }
   }
@@ -188,13 +194,13 @@ class Slider extends React.Component {
         onMouseEnter={() => pauseOnMouseOver && this.autoSlider && this.autoSlider.pause()}
       >
         <SliderWrapper {...otherProps}>
-          {showArrows && this.renderLeftArrow()}
+          {showArrows && !this.state.hideArrows && this.renderLeftArrow()}
           <SliderTrack>
             <SliderList translateX={initialCard * childWidth}>
               {this.renderChildren(children, cardsToShow || children.length)}
             </SliderList>
           </SliderTrack>
-          {showArrows && this.renderRightArrow()}
+          {showArrows && !this.state.hideArrows && this.renderRightArrow()}
         </SliderWrapper>
         <Dots>
           {showDots && this.renderDots()}
@@ -219,6 +225,7 @@ Slider.defaultProps = {
   pauseOnMouseOver: true,
   padding: '0px 20px',
   margin: '0px',
+  hideArrowsOnNoSlides: true,
 };
 
 Slider.propTypes = {
@@ -243,6 +250,7 @@ Slider.propTypes = {
   pauseOnMouseOver: PropTypes.bool,
   padding: PropTypes.string,
   margin: PropTypes.string,
+  hideArrowsOnNoSlides: PropTypes.bool,
 };
 
 export default Slider;
