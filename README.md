@@ -86,7 +86,7 @@ Props | Type | Default Value | Description
 `responsive` | `Array` | null | Use this for responsiveness [Documentation](#responsive)
 `autoSlide` | `Number` or `Boolean` | `2000` | Used to make carousel auto slide for every given time interval. Or for 2000ms if the prop value is true.
 `pauseOnMouseOver`| `Boolean` | `true` | Pause auto sliding on mouse over the carousel.
-`hideArrowsOnNoSlides` | `Boolean` | `true` | Hide arrows if only one slide to show.
+`hideArrowsOnNoSlides` | `Boolean` | `true` | Hide arrows if there is only one slide to show.
 `margin`| `String` | `0px` | Any valid css margin value for giving margin around the slider
 `padding` | `String` | `0px 20px` | Any valid css padding value for giving padding around the slider
 

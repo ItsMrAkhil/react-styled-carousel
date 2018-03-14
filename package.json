@@ -1,6 +1,6 @@
 {
   "name": "react-styled-carousel",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "React styled-components carousel. No css is needed, fully configurable, SSR supported. Theming supported.",
   "main": "build/components/Slider.js",
   "scripts": {
