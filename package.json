@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --color --config webpack.config.dev.js",
     "build": "rimraf build && babel src --ignore '**/*__tests__*/**, **/*Root.js, **/*example.js' -d build",
-    "test": "cross-env NODE_ENV=test jest --coverage && cat ./coverage/lcov.info | coveralls"
+    "test": "cross-env NODE_ENV=test jest --coverage",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
