@@ -13,14 +13,6 @@ import Dots from './Dots';
 import DefaultDot from './Dot';
 import Timer from '../utils/Timer';
 
-if (typeof window === 'undefined') {
-  global.window = {
-    addEventListener: () => null,
-    removeEventListener: () => null,
-    innerWidth: 1280,
-  };
-}
-
 class Slider extends React.Component {
   constructor(props) {
     super(props);
@@ -53,7 +45,8 @@ class Slider extends React.Component {
       cardsToShow,
       hideArrows: hideArrowsOnNoSlides && numberOfChildren <= cardsToShow,
     }, () => this.updateResponsiveView());
-    window.addEventListener('resize', this.updateResponsiveView);
+    typeof window !== 'undefined' && // eslint-disable-line no-unused-expressions
+      window.addEventListener('resize', this.updateResponsiveView);
     if (autoSlide) {
       this.autoSlider = new Timer(() => {
         let updatedInitialCard = 0;
@@ -69,7 +62,8 @@ class Slider extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateResponsiveView);
+    typeof window !== 'undefined' && // eslint-disable-line no-unused-expressions
+      window.removeEventListener('resize', this.updateResponsiveView);
   }
 
   updateResponsiveView() {
