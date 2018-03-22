@@ -51,7 +51,7 @@ class Slider extends React.Component {
     this.setState({ // eslint-disable-line react/no-did-mount-set-state
       childWidth,
       cardsToShow,
-      hideArrows: hideArrowsOnNoSlides && numberOfChildren === cardsToShow,
+      hideArrows: hideArrowsOnNoSlides && numberOfChildren <= cardsToShow,
     }, () => this.updateResponsiveView());
     window.addEventListener('resize', this.updateResponsiveView);
     if (autoSlide) {
@@ -89,7 +89,7 @@ class Slider extends React.Component {
         cardsToShow: updatedCardsToShow,
         childWidth: 100 / updatedCardsToShow,
         initialCard: updatedInitialCard,
-        hideArrows: hideArrowsOnNoSlides && numberOfChildren === updatedCardsToShow,
+        hideArrows: hideArrowsOnNoSlides && numberOfChildren <= updatedCardsToShow,
       });
     }
   }
