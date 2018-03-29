@@ -78,6 +78,7 @@ Props | Type | Default Value | Description
 `showDots` | `Boolean` | `true` | Show navigation or pagination dots below the slider
 `infinite` | `Boolean` | `true` | Infinitely slide cards.
 `Dot` | `React Node` | Default | Customized pagination button (`Active slide Dot` will get `active` as `Boolean` prop.)
+`DotsWrapper` | `Styled Element` | Default | Customized wrapper for your <Dot /> component to change the view of dots wrapper like position, background, etc. `Note: It should be a styled ul, otherwise you may not see any Dot Components.`
 `LeftArrow` | `React Node` | Default | Customized left arrow button. It'll get `disabled Boolean` prop if first Dot is active and infinite is false.
 `RightArrow` | `React Node` | Default | Customized right arrow button. It'll get `disabled Boolean` prop if last Dot is active and infinite is false.
 `children` | `React Node` | null | Cards are components which you want to show in the carousel
