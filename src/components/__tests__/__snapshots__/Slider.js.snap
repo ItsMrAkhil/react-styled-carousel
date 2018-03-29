@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Slider
     Dot={<styled.li />}
+    DotsWrapper={[Function]}
     LeftArrow={<styled.button />}
     RightArrow={<styled.button />}
     afterSlide={null}
@@ -497,6 +498,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Slider
     Dot={<styled.li />}
+    DotsWrapper={[Function]}
     LeftArrow={<styled.button />}
     RightArrow={<styled.button />}
     afterSlide={null}

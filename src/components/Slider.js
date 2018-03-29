@@ -9,7 +9,7 @@ import DefaultRightArrow from './RightArrow';
 import DefaultLeftArrow from './LeftArrow';
 import SliderWrapper from './SliderWrapper';
 import SliderList from './SliderList';
-import Dots from './Dots';
+import DefaultDotsWrapper from './DotsWrapper';
 import DefaultDot from './Dot';
 import Timer from '../utils/Timer';
 
@@ -178,7 +178,7 @@ class Slider extends React.Component {
     const {
       children, cardsToShow,
       showDots, showArrows,
-      pauseOnMouseOver,
+      pauseOnMouseOver, DotsWrapper,
       ...otherProps
     } = this.props;
     const { initialCard, childWidth } = this.state;
@@ -196,9 +196,9 @@ class Slider extends React.Component {
           </SliderTrack>
           {showArrows && !this.state.hideArrows && this.renderRightArrow()}
         </SliderWrapper>
-        <Dots>
+        <DotsWrapper>
           {showDots && this.renderDots()}
-        </Dots>
+        </DotsWrapper>
       </div>
     );
   }
@@ -210,6 +210,7 @@ Slider.defaultProps = {
   LeftArrow: <DefaultLeftArrow />,
   RightArrow: <DefaultRightArrow />,
   Dot: <DefaultDot />,
+  DotsWrapper: DefaultDotsWrapper,
   cardsToShow: null,
   afterSlide: null,
   beforeSlide: null,
@@ -245,6 +246,7 @@ Slider.propTypes = {
   padding: PropTypes.string,
   margin: PropTypes.string,
   hideArrowsOnNoSlides: PropTypes.bool,
+  DotsWrapper: PropTypes.func,
 };
 
 export default Slider;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Dots = styled.ul`
+const DotsWrapper = styled.ul`
   display: block;
   list-style: none;
   text-align: center;
@@ -8,4 +8,4 @@ const Dots = styled.ul`
   margin: 0px;
 `;
 
-export default Dots;
+export default DotsWrapper;
