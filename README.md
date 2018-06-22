@@ -60,7 +60,7 @@ const responsive = [
 ];
 
 const ExampleSlider = () => (
-  <Slider>
+  <Slider reponsive={responsive} >
     <h1>1</h1>
     <h1>2</h1>
     <h1>3</h1>
