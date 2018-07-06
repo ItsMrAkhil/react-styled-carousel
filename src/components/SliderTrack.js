@@ -8,6 +8,7 @@ const SliderTrack = styled.div`
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
+  vertical-align: top;
 `;
 
 export default SliderTrack;
