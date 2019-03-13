@@ -1,4 +1,3 @@
-/* global window */
 import React from 'react';
 import PropTypes from 'prop-types';
 import sortBy from 'lodash.sortby';
@@ -40,12 +39,12 @@ class Slider extends React.Component {
     const numberOfChildren = children ? children.length || 1 : 0;
     const cardsToShow = cardsToShowProp || numberOfChildren;
     const childWidth = 100 / cardsToShow;
-    this.setState({ // eslint-disable-line react/no-did-mount-set-state
+    this.setState({
       childWidth,
       cardsToShow,
       hideArrows: hideArrowsOnNoSlides && numberOfChildren <= cardsToShow,
     }, () => this.updateResponsiveView());
-    typeof window !== 'undefined' && // eslint-disable-line no-unused-expressions
+    typeof window !== 'undefined' &&
       window.addEventListener('resize', this.updateResponsiveView);
     if (autoSlide) {
       this.autoSlider = new Timer(() => {

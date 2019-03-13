@@ -1,12 +1,14 @@
 {
   "presets": [
-    "env",
-    "react",
-    "stage-0"
+    "@babel/env",
+    "@babel/react"
   ],
   "env": {
     "development": {
-      "plugins": ["react-hot-loader/babel"]
+      "plugins": [
+        "react-hot-loader/babel",
+        "@babel/plugin-proposal-class-properties"
+      ]
     }
   }
 }

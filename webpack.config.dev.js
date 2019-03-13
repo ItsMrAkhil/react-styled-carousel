@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -9,7 +9,7 @@ module.exports = {
   ],
   devtool: 'eval-source-map',
   module: {
-    loaders: [
+    rules: [
       {
         test: /.(js|jsx)$/,
         exclude: /node_modules/,
@@ -37,7 +37,7 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       title: 'React Styled Carousel',
@@ -48,6 +48,6 @@ module.exports = {
     port: 9000,
     open: true,
     overlay: true,
-    stats: "errors-only",
-  }
-}
+    stats: 'errors-only',
+  },
+};
