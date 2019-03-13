@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Dot = styled.li.attrs({
-  children: ({ onClick }) => <button onClick={onClick}>•</button>, // eslint-disable-line react/prop-types
+  children: ({ onClick }) => <button onClick={onClick} type="button">•</button>, // eslint-disable-line react/prop-types
 })`
   display: inline-block;
   pointer-events: none;
