@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import sortBy from 'lodash.sortby';
 
 import SliderTrack from './SliderTrack';
 import CardWrapper from './CardWrapper';
@@ -44,8 +43,8 @@ class Slider extends React.Component {
       cardsToShow,
       hideArrows: hideArrowsOnNoSlides && numberOfChildren <= cardsToShow,
     }, () => this.updateResponsiveView());
-    typeof window !== 'undefined' &&
-      window.addEventListener('resize', this.updateResponsiveView);
+    typeof window !== 'undefined'
+      && window.addEventListener('resize', this.updateResponsiveView);
     if (autoSlide) {
       this.autoSlider = new Timer(() => {
         let updatedInitialCard = 0;
@@ -61,8 +60,8 @@ class Slider extends React.Component {
   }
 
   componentWillUnmount() {
-    typeof window !== 'undefined' && // eslint-disable-line no-unused-expressions
-      window.removeEventListener('resize', this.updateResponsiveView);
+    typeof window !== 'undefined' // eslint-disable-line no-unused-expressions
+      && window.removeEventListener('resize', this.updateResponsiveView);
   }
 
   updateResponsiveView() {
@@ -70,7 +69,7 @@ class Slider extends React.Component {
     let { responsive } = this.props;
     const numberOfChildren = children ? children.length || 1 : 0;
     if (responsive) {
-      responsive = sortBy(responsive, 'breakPoint');
+      responsive = responsive.map(obj => Object.assign({}, obj)).sort((key => (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0))('breakPoint'));
       let updatedCardsToShow = this.state.cardsToShow;
       responsive.forEach(({ breakPoint, cardsToShow }) => {
         if (breakPoint <= window.innerWidth) {
@@ -245,7 +244,10 @@ Slider.propTypes = {
   padding: PropTypes.string,
   margin: PropTypes.string,
   hideArrowsOnNoSlides: PropTypes.bool,
-  DotsWrapper: PropTypes.func,
+  DotsWrapper: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object,
+  ]),
 };
 
 export default Slider;
