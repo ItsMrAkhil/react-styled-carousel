@@ -69,7 +69,8 @@ class Slider extends React.Component {
     let { responsive } = this.props;
     const numberOfChildren = children ? children.length || 1 : 0;
     if (responsive) {
-      responsive = responsive.map(obj => Object.assign({}, obj)).sort((key => (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0))('breakPoint'));
+      responsive = responsive.map(obj => Object.assign({}, obj)).sort((key => (a, b) =>
+        (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0))('breakPoint')); // eslint-disable-line
       let updatedCardsToShow = this.state.cardsToShow;
       responsive.forEach(({ breakPoint, cardsToShow }) => {
         if (breakPoint <= window.innerWidth) {
