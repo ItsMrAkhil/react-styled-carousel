@@ -63,6 +63,11 @@ class Slider extends React.Component {
   componentWillUnmount() {
     typeof window !== 'undefined' && // eslint-disable-line no-unused-expressions
       window.removeEventListener('resize', this.updateResponsiveView);
+
+    if (this.autoSlider) {
+      this.autoSlider.pause();
+      this.autoSlider = null;
+    }
   }
 
   updateResponsiveView() {
