@@ -61,7 +61,6 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
-    "lodash.sortby": "^4.7.0",
     "react": "^16.2.0",
     "styled-components": "^4.1.3"
   },
