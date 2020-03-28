@@ -33,6 +33,7 @@ class Slider extends React.Component {
   componentDidMount() {
     const {
       children, cardsToShow: cardsToShowProp,
+      duration,
       autoSlide, hideArrowsOnNoSlides,
     } = this.props;
     const numberOfChildren = children ? children.length || 1 : 0;
@@ -54,7 +55,7 @@ class Slider extends React.Component {
         this.setState({
           initialCard: updatedInitialCard,
         });
-      }, (autoSlide === true ? 2000 : autoSlide));
+      }, (autoSlide && duration ? autoSlide + duration : autoSlide));
       this.autoSlider.start();
     }
   }
@@ -181,6 +182,8 @@ class Slider extends React.Component {
   render() {
     const {
       children, cardsToShow,
+      duration,
+      easing,
       showDots, showArrows,
       pauseOnMouseOver, DotsWrapper,
       ...otherProps
@@ -194,7 +197,7 @@ class Slider extends React.Component {
         <SliderWrapper {...otherProps}>
           {showArrows && !this.state.hideArrows && this.renderLeftArrow()}
           <SliderTrack>
-            <SliderList translateX={initialCard * childWidth}>
+            <SliderList translateX={initialCard * childWidth} duration={duration} easing={easing}>
               {this.renderChildren(children, cardsToShow || children.length)}
             </SliderList>
           </SliderTrack>
@@ -218,6 +221,8 @@ Slider.defaultProps = {
   cardsToShow: null,
   afterSlide: null,
   beforeSlide: null,
+  duration: 600,
+  easing: 'ease-in-out',
   infinite: true,
   responsive: null,
   autoSlide: 2000,
@@ -237,6 +242,8 @@ Slider.propTypes = {
   cardsToShow: PropTypes.number,
   afterSlide: PropTypes.func,
   beforeSlide: PropTypes.func,
+  duration: PropTypes.number,
+  easing: PropTypes.string,
   infinite: PropTypes.bool,
   responsive: PropTypes.arrayOf(PropTypes.shape({
     breakPoint: PropTypes.number,

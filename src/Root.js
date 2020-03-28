@@ -14,7 +14,7 @@ const responsive = [
 const Root = () => (
   <Container>
     <h1>Styled Carousel Example</h1>
-    <Slider responsive={responsive}>
+    <Slider responsive={responsive} duration={900} easing="cubic-bezier(.68,-0.6,.32,1.6)" autoSlide={3600}>
       <ExampleCard>1</ExampleCard>
       <ExampleCard>2</ExampleCard>
       <ExampleCard>3</ExampleCard>
